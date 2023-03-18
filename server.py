@@ -6,6 +6,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 PrometheusMetrics(app)
 
 
@@ -34,4 +35,4 @@ def oops():
 
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", 8080, threaded=True)
+    app.run("0.0.0.0", 8080, threaded=True, debug=True)
